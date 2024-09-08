@@ -1,0 +1,17 @@
+{
+  "print": {
+    "prefix": ["print"],
+    "body": ["System.out.print($0);"],
+    "description": "Print to standard out"
+  },
+  "println": {
+    "prefix": ["println"],
+    "body": ["System.out.println($0);"],
+    "description": "Print line to standard out"
+  },
+  "printf": {
+    "prefix": ["printf"],
+    "body": ["System.out.printf($0);"],
+    "description": "Print formated to standard out"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "user_snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "java",
+        "path": "./java.json"
+      },
+      {
+        "language": "java",
+        "path": "./javadoc.json"
+      }
+    ]
+  }
+}
