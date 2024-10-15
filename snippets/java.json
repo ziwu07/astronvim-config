@@ -13,5 +13,18 @@
     "prefix": ["printf"],
     "body": ["System.out.printf($0);"],
     "description": "Print formated to standard out"
+  },
+  "header": {
+    "prefix": ["header"],
+    "body": [
+      "/**",
+      " * Name: John Meng",
+      " * Teacher: Ms. Lam",
+      " * Date: $CURRENT_YEAR $CURRENT_MONTH_NAME_SHORT $CURRENT_DATE",
+      " * Description: $1",
+      " */",
+      "$0"
+    ],
+    "description": "Program header"
   }
 }

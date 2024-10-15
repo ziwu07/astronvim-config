@@ -9,5 +9,7 @@ return {
       "vim",
       -- add more arguments for adding more treesitter parsers
     },
+    ignore_install = { "asm" },
+    highlight = { disable = { "asm" } },
   },
 }
