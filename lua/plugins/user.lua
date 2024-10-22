@@ -26,7 +26,12 @@ return {
   --     filetype = "arduino",
   --   },
   -- },
-  "andweeb/presence.nvim",
+  {
+    "RaafatTurki/hex.nvim",
+    opts = {},
+    ft = "binary",
+  },
+  { "andweeb/presence.nvim" },
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
@@ -52,6 +57,7 @@ return {
 
           -- Set the fixed width of the completion menu to 60 characters.
           -- local fixed_width = 20
+          local fixed_width
 
           -- Set 'fixed_width' to false if not provided.
           fixed_width = fixed_width or false
