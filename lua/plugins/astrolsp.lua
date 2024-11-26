@@ -38,7 +38,7 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
-      "arduino_language_server",
+      -- "arduino_language_server",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -54,25 +54,25 @@ return {
         },
       },
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
-      arduino_language_server = {
-        cmd = {
-          "/home/ziwu07/.local/bin/arduino-language-server",
-          "-clangd",
-          "/usr/bin/clangd",
-          "-cli",
-          "/home/ziwu07/.local/bin/arduino-cli",
-          "-cli-config",
-          "/home/ziwu07/.arduino15/arduino-cli.yaml",
-          "-fqbn",
-          "arduino:avr:mega",
-          "-jobs",
-          "2",
-          "-log",
-          "-logpath",
-          "/home/ziwu07/.var/log/arduino-lsp",
-        },
-        filetypes = { "arduino" },
-      },
+      -- arduino_language_server = {
+      --   cmd = {
+      --     "/home/ziwu07/.local/bin/arduino-language-server",
+      --     "-clangd",
+      --     "/usr/bin/clangd",
+      --     "-cli",
+      --     "/home/ziwu07/.local/bin/arduino-cli",
+      --     "-cli-config",
+      --     "/home/ziwu07/.arduino15/arduino-cli.yaml",
+      --     "-fqbn",
+      --     "arduino:avr:mega",
+      --     "-jobs",
+      --     "2",
+      --     "-log",
+      --     "-logpath",
+      --     "/home/ziwu07/.var/log/arduino-lsp",
+      --   },
+      --   filetypes = { "arduino" },
+      -- },
     },
     -- customize how language servers are attached
     handlers = {

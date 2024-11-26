@@ -12,6 +12,10 @@
       {
         "language": "java",
         "path": "./javadoc.json"
+      },
+      {
+        "language": "cpp",
+        "path": "./cpp.json"
       }
     ]
   }

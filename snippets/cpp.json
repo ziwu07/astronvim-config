@@ -1,0 +1,15 @@
+{
+  "header": {
+    "prefix": ["header"],
+    "body": [
+      "/*",
+      " * $TM_FILENAME_BASE",
+      " * Programmer: John Meng",
+      " * Date: $CURRENT_YEAR $CURRENT_MONTH_NAME_SHORT $CURRENT_DATE",
+      " * Description:",
+      " *   $0",
+      " */"
+    ],
+    "description": "Program header"
+  }
+}
