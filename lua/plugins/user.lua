@@ -26,11 +26,11 @@ return {
   --     filetype = "arduino",
   --   },
   -- },
-  {
-    "RaafatTurki/hex.nvim",
-    opts = {},
-    ft = "binary",
-  },
+  -- {
+  --   "RaafatTurki/hex.nvim",
+  --   opts = {},
+  --   ft = "binary",
+  -- },
   { "andweeb/presence.nvim" },
   {
     "ray-x/lsp_signature.nvim",
