@@ -23,6 +23,6 @@ return {
   { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
   { import = "astrocommunity.snippet.nvim-snippets" },
   { import = "astrocommunity.recipes.vscode" },
-  { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.pack.verilog" },
   -- import/override with your plugins folder
 }
