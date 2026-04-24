@@ -1,90 +1,41 @@
 -- You can also add or configure plugins by creating files in this `plugins/` folder
+-- PLEASE REMOVE THE EXAMPLES YOU HAVE NO INTEREST IN BEFORE ENABLING THIS FILE
 -- Here are some examples:
 
 ---@type LazySpec
 return {
 
   -- == Examples of Adding Plugins ==
-  -- {
-  --   "glebzlat/arduino-nvim",
-  --   config = {
-  --     function()
-  --       require("arduino-nvim").setup {
-  --         default_fqbn = "arduino:avr:mega",
-  --         clangd = "/usr/bin/clangd",
-  --         arduino = "/home/ziwu07/.local/bin/arduino-cli",
-  --         extra_args = {
-  --           "-jobs",
-  --           "2",
-  --           "-log",
-  --           "-logpath",
-  --           "/home/ziwu07/.var/log/arduino-lsp",
-  --         },
-  --         callbacks = {},
-  --       }
-  --     end,
-  --     filetype = "arduino",
-  --   },
-  -- },
-  -- {
-  --   "RaafatTurki/hex.nvim",
-  --   opts = {},
-  --   ft = "binary",
-  -- },
-  { "andweeb/presence.nvim" },
+
+  "andweeb/presence.nvim",
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
     config = function() require("lsp_signature").setup() end,
   },
 
+  -- == Examples of Overriding Plugins ==
+
+  -- customize dashboard options
   {
-    "hrsh7th/nvim-cmp",
+    "folke/snacks.nvim",
     opts = {
-      formatting = {
-        fields = { "abbr", "menu", "kind" },
-        format = function(entry, item)
-          -- Define menu shorthand for different completion sources.
-          local menu_icon = {
-            nvim_lsp = "NLSP",
-            nvim_lua = "NLUA",
-            luasnip = "LSNP",
-            buffer = "BUFF",
-            path = "PATH",
-          }
-          -- Set the menu "icon" to the shorthand for each completion source.
-          item.menu = menu_icon[entry.source.name]
-
-          -- Set the fixed width of the completion menu to 60 characters.
-          -- local fixed_width = 20
-          local fixed_width
-
-          -- Set 'fixed_width' to false if not provided.
-          fixed_width = fixed_width or false
-          -- Get the completion entry text shown in the completion window.
-          local content = item.abbr
-
-          -- Set the fixed completion window width.
-          if fixed_width then vim.o.pumwidth = fixed_width end
-
-          -- Get the width of the current window.
-          local win_width = vim.api.nvim_win_get_width(0)
-
-          -- Set the max content width based on either: 'fixed_width'
-          -- or a percentage of the window width, in this case 20%.
-          -- We subtract 10 from 'fixed_width' to leave room for 'kind' fields.
-          local max_content_width = fixed_width and fixed_width - 10 or math.floor(win_width * 0.2)
-
-          -- Truncate the completion entry text if it's longer than the
-          -- max content width. We subtract 3 from the max content width
-          -- to account for the "..." that will be appended to it.
-          if #content > max_content_width then
-            item.abbr = vim.fn.strcharpart(content, 0, max_content_width - 3) .. "..."
-          else
-            item.abbr = content .. (" "):rep(max_content_width - #content)
-          end
-          return item
-        end,
+      dashboard = {
+        preset = {
+          header = table.concat({
+            " █████  ███████ ████████ ██████   ██████ ",
+            "██   ██ ██         ██    ██   ██ ██    ██",
+            "███████ ███████    ██    ██████  ██    ██",
+            "██   ██      ██    ██    ██   ██ ██    ██",
+            "██   ██ ███████    ██    ██   ██  ██████ ",
+            "",
+            "███    ██ ██    ██ ██ ███    ███",
+            "████   ██ ██    ██ ██ ████  ████",
+            "██ ██  ██ ██    ██ ██ ██ ████ ██",
+            "██  ██ ██  ██  ██  ██ ██  ██  ██",
+            "██   ████   ████   ██ ██      ██",
+          }, "\n"),
+        },
       },
     },
   },
@@ -95,17 +46,14 @@ return {
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
-    -- follow latest release.
-    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    -- install jsregexp (optional!).
-    build = "make install_jsregexp",
+    config = function(plugin, opts)
+      -- add more custom luasnip configuration such as filetype extend or custom snippets
+      local luasnip = require "luasnip"
+      -- luasnip.filetype_extend("javascript", { "javascriptreact" })
 
-    -- config = function(plugin, opts)
-    --   require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
-    --   -- add more custom luasnip configuration such as filetype extend or custom snippets
-    --   local luasnip = require "luasnip"
-    --   luasnip.filetype_extend("javascript", { "javascriptreact" })
-    -- end,
+      -- include the default astronvim config that calls the setup call
+      require "astronvim.plugins.configs.luasnip"(plugin, opts)
+    end,
   },
 
   {
@@ -135,6 +83,18 @@ return {
         -- disable for .vim files, but it work for another filetypes
         Rule("a", "a", "-vim")
       )
+    end,
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    config = function(plugin, opts)
+      -- run default AstroNvim nvim-dap-ui configuration function
+      require "astronvim.plugins.configs.nvim-dap-ui"(plugin, opts)
+      -- disable dap events that are created
+      local dap = require "dap"
+      dap.listeners.before.event_terminated.dapui_config = nil
+      dap.listeners.before.event_exited.dapui_config = nil
     end,
   },
 }
