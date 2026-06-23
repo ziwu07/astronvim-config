@@ -20,6 +20,19 @@ return {
 
         -- install any other package
         "tree-sitter-cli",
+
+        -- my stuff
+        "beautysh",
+        "fish-lsp",
+        "cmake-language-server",
+        "css-lsp",
+        "html-lsp",
+        "systemd-lsp",
+        "systemdlint",
+        "clang-format",
+        "rust-analyzer",
+        "bacon-ls",
+        "bacon",
       },
     },
   },
