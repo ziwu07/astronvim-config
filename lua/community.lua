@@ -23,6 +23,7 @@ return {
   { import = "astrocommunity.pack.verilog" },
   { import = "astrocommunity.pack.xml" },
   { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.zig" },
   { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
   { import = "astrocommunity.recipes.neovide" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },

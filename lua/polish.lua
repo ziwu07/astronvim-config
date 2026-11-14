@@ -3,3 +3,9 @@
 -- fit in the normal config locations above can go here
 
 vim.opt.fileencodings = "ucs-bom,utf-8,sjis"
+vim.opt.shell = "fish -P"
+vim.opt.makeprg = "./build.sh debug"
+vim.g.snacks_indent = false
+vim.opt.autowrite = true
+vim.opt.exrc = true
+vim.g.exrc = true
